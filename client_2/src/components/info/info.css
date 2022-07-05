@@ -1,0 +1,18 @@
+.info {
+    flex: 6;
+    overflow-y: scroll;
+    position: sticky;
+}
+
+.infoWrapper{
+    padding: 20px;
+}
+
+.infoText {
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+.infoWrapper>.case {
+    margin-top: 0;
+}
