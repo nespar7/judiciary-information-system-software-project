@@ -1,17 +1,34 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router";
+import { useParams } from "react-router";
 import axios from "axios";
-import './createCase.css'
+import './updateCase.css'
 
-export default function CreateCase() {
+export default function UpdateCase() {
 
-    const defName = useRef();
-    const defAddr = useRef();
-    const crimeType = useRef();
-    const crimeLoc = useRef();
-    const officerName = useRef();
-    const judgeName = useRef();
-    const lawyerName = useRef();
+    const params = useParams();
+    const caseId = params.caseId;
+    console.log(caseId);
+    const [Case, setCase] = useState();
+    
+    useEffect(() => {
+        const fetchCase = async () => {
+            const currentCase = await axios.get(`/case/${caseId}`);
+            console.log(currentCase);
+            setCase(currentCase);
+        }
+
+        fetchCase();
+    }, [caseId]);
+
+    const defName = useRef(Case.defName);
+    const defAddr = useRef(Case.defAddr);
+    const crimeType = useRef(Case.crimeType);
+    const crimeLoc = useRef(Case.crimeLoc);
+    const officerName = useRef(Case.officerName);
+    const judgeName = useRef(Case.judgeName);
+    const lawyerName = useRef(Case.lawyerName);
+
 
     let Navigate = useNavigate();
 

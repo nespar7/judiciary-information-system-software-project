@@ -1,8 +1,9 @@
 import './case.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
-export default function Case({ currentCase, index }) {
+export default function Case({ currentCase, index, designation }) {
 
     return (
         <div className="case">
@@ -39,6 +40,9 @@ export default function Case({ currentCase, index }) {
                     <h4 className="heading">Status:</h4>
                     <span className='caseText'>{currentCase.status}</span>
                 </div>
+                <Link to={`/updateCase/${currentCase._id}`} >
+                    <button>Update Case</button>
+                </Link>
             </div>
         </div>
     )

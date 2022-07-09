@@ -4,6 +4,7 @@ import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import CreateCase from "./pages/createCase/CreateCase";
 import CreateUser from "./pages/createUser/CreateUser";
+import UpdateCase from "./pages/updateCase/UpdateCase";
 import { AuthContext } from "./context/AuthContext";
 
 function App() {
@@ -16,7 +17,8 @@ function App() {
         <Route path="/" element={user ? <Home /> : <Login/>} />
         <Route path="/login" element={user ? <Navigate to='/'/> : <Login />} />
         <Route path="/createUser" element={<CreateUser />} />
-        <Route path="/createCase" element={<CreateCase />} />
+        <Route path="/createCase" element={user ? <CreateCase /> : <Navigate to='/login'/>} />
+        <Route path="/updateCase/:caseId" element={user ? <UpdateCase /> : <Navigate to='/login'/>} />
       </Routes>
     </Router>  
   )

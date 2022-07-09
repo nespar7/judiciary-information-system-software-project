@@ -32,7 +32,7 @@ router.get('/:id', async (req, res) => {
         const currentCase = await Case.findById(req.params.id)
         res.status(200).json(currentCase);
     } catch (error) {
-        res.status(500).json(Case);
+        res.status(500).json(error);
     }
 })
 

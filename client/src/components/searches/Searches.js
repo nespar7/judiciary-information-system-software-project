@@ -1,11 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import Case from "../case/Case";
+import { AuthContext } from "../../context/AuthContext";
 import './searches.css'
 
 export default function Searches({ search }) {
     
     const [SearchResult, setSearchResult] = useState([]);
+
+    const { user: currentUser } = useContext(AuthContext);
 
     useEffect(() => {
         const fetchCases = async () => {
@@ -38,7 +41,7 @@ export default function Searches({ search }) {
     else {
         content =
             SearchResult.map((c, index) => (
-                <Case key={c._id} currentCase={c} index={index + 1} />
+                <Case key={c._id} currentCase={c} index={index + 1} designation={currentUser.designation} />
             ))
     }
 

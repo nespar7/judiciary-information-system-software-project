@@ -7,8 +7,6 @@ import { AuthContext } from '../../context/AuthContext';
 export default function Info() {
 
     const [UpcomingCases, setUpcomingCases] = useState([]);
-
-    const userId = "62bfc9fac2a9d7116abfd06d";
     
     const { user: currentUser } = useContext(AuthContext);
 
@@ -36,7 +34,7 @@ export default function Info() {
         }
 
         fetchCases();
-    }, [userId]);
+    }, [currentUser]);
 
     return (
         <div className='info'>
@@ -45,7 +43,7 @@ export default function Info() {
             </div>
             <div className="infoWrapper">
                 {UpcomingCases.map((c, index) => (
-                    <Case key={c._id} currentCase={c} index={index + 1} />
+                    <Case key={c._id} currentCase={c} index={index + 1} designation={currentUser.designation} />
                 ))}
             </div>
         </div>
