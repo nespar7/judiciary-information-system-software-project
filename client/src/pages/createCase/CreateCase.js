@@ -2,9 +2,9 @@ import { useRef } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
 import './createCase.css'
-import { ConfirmationNumberTwoTone } from "@material-ui/icons";
+import { TextField } from "@material-ui/core";
 
-export default function CreateCase({Case}) {
+export default function CreateCase() {
 
     const defName = useRef();
     const defAddr = useRef();
@@ -47,13 +47,13 @@ export default function CreateCase({Case}) {
                 </div>
                 <form className="cCaseRight" onSubmit={handleSubmit}>
                     <div className="cCaseBox">
-                        <input type="text" required ref={defName} className='cCaseInput' placeholder="Defendant's name" />
-                        <input type="text" required ref={defAddr} className="cCaseInput" placeholder="Defendant's address" />
-                        <input type="text" required ref={crimeType} className="cCaseInput" placeholder="Crime Type" />
-                        <input type="text" required ref={crimeLoc} className="cCaseInput" placeholder="Crime Location" />
-                        <input type="text" required ref={officerName} className="cCaseInput" placeholder="Officer's name" />
-                        <input type="text" ref={judgeName} className="cCaseInput" placeholder="Judge's name" />
-                        <input type="text" ref={lawyerName} className="cCaseInput" placeholder="Lawyer's name" />
+                        <TextField variant="outlined" label="Defendant's Name" required ref={defName} className='cCaseInput' placeholder="Defendant's name" />
+                        <TextField variant="outlined" label="Defendant's Address" required ref={defAddr} className="cCaseInput" placeholder="Defendant's address" />
+                        <TextField variant="outlined" label="Crime Type" required ref={crimeType} className="cCaseInput" placeholder="Crime Type" />
+                        <TextField variant="outlined" label="Crime Location" required ref={crimeLoc} className="cCaseInput" placeholder="Crime Location" />
+                        <TextField variant="outlined" label="Officer's Name" required ref={officerName} className="cCaseInput" placeholder="Officer's name" />
+                        <TextField variant="outlined" label="Judge's Name" ref={judgeName} className="cCaseInput" placeholder="Judge's name" />
+                        <TextField variant="outlined" label="Lawyer's Mame" ref={lawyerName} className="cCaseInput" placeholder="Lawyer's name" />
                         <button className="cCaseButton" type='submit'>Create Case</button>
                     </div>
                 </form>
