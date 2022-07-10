@@ -25,3 +25,16 @@
 .caseText{
     margin-left: 10px;
 }
+
+.uButton {
+    height: 30px;
+    width: 50%;
+    margin-left: 25%;
+    border-radius: 10px;
+    border: none;
+    background-color: #175eee;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+}

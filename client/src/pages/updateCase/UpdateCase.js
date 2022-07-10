@@ -3,49 +3,91 @@ import { useNavigate } from "react-router";
 import { useParams } from "react-router";
 import axios from "axios";
 import './updateCase.css'
+import { TextField } from "@material-ui/core";
 
 export default function UpdateCase() {
 
     const params = useParams();
     const caseId = params.caseId;
-    console.log(caseId);
-    const [Case, setCase] = useState();
-    
+
+    const [currentCase, setcurrentCase] = useState({
+        defName: '',
+        defAddr: '',
+        crimeType: '',
+        crimeLoc: '',
+        officerName: '',
+        judgeName: '',
+        lawyerName: ''
+    });
+
     useEffect(() => {
         const fetchCase = async () => {
-            const currentCase = await axios.get(`/case/${caseId}`);
-            console.log(currentCase);
-            setCase(currentCase);
+            const fetchedCase = await axios.get('/case/' + caseId);
+
+            setcurrentCase(fetchedCase.data);
         }
 
         fetchCase();
     }, [caseId]);
 
-    const defName = useRef(Case.defName);
-    const defAddr = useRef(Case.defAddr);
-    const crimeType = useRef(Case.crimeType);
-    const crimeLoc = useRef(Case.crimeLoc);
-    const officerName = useRef(Case.officerName);
-    const judgeName = useRef(Case.judgeName);
-    const lawyerName = useRef(Case.lawyerName);
-
-
     let Navigate = useNavigate();
+
+    const onChangeDefName = (e) => {
+        setcurrentCase({
+            ...currentCase, defName: e.target.value
+        })
+    }
+
+    const onChangeDefAddr = (e) => {
+        setcurrentCase({
+            ...currentCase, defAddr: e.target.value
+        })
+    }
+
+    const onChangeCrimeType = (e) => {
+        setcurrentCase({
+            ...currentCase, crimeType: e.target.value
+        })
+    }
+
+    const onChangeCrimeLoc = (e) => {
+        setcurrentCase({
+            ...currentCase, crimeLoc: e.target.value
+        })
+    }
+
+    const onChangeOfficerName = (e) => {
+        setcurrentCase({
+            ...currentCase, officerName: e.target.value
+        })
+    }
+
+    const onChangeJudgeName = (e) => {
+        setcurrentCase({
+            ...currentCase, judgeName: e.target.value
+        })
+    }
+
+    const onChangeLawyerName = (e) => {
+        setcurrentCase({
+            ...currentCase, lawyerName: e.target.value
+        })
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const Case = {
-            defName: defName.current.value,
-            defAddr: defAddr.current.value,
-            crimeType: crimeType.current.value,
-            crimeLoc: crimeLoc.current.value,
-            officerName: officerName.current.value,
-            judgeName: judgeName.current.value,
-            lawyerName: lawyerName.current.value
+            defName: currentCase.defName,
+            defAddr: currentCase.defAddr,
+            crimeType: currentCase.crimeType,
+            crimeLoc: currentCase.crimeLoc,
+            officerName: currentCase.officerName,
+            judgeName: currentCase.judgeName,
+            lawyerName: currentCase.lawyerName
         }
         try {
-            await axios.post("/case", Case);
+            await axios.put("/case/"+caseId, Case);
             Navigate('/');
         } catch (error) {
             console.log(error);
@@ -63,14 +105,14 @@ export default function UpdateCase() {
                 </div>
                 <form className="cCaseRight" onSubmit={handleSubmit}>
                     <div className="cCaseBox">
-                        <input type="text" required ref={defName} className='cCaseInput' placeholder="Defendant's name" />
-                        <input type="text" required ref={defAddr} className="cCaseInput" placeholder="Defendant's address" />
-                        <input type="text" required ref={crimeType} className="cCaseInput" placeholder="Crime Type" />
-                        <input type="text" required ref={crimeLoc} className="cCaseInput" placeholder="Crime Location" />
-                        <input type="text" required ref={officerName} className="cCaseInput" placeholder="Officer's name" />
-                        <input type="text" ref={judgeName} className="cCaseInput" placeholder="Judge's name" />
-                        <input type="text" ref={lawyerName} className="cCaseInput" placeholder="Lawyer's name" />
-                        <button className="cCaseButton" type='submit'>Create Case</button>
+                        <TextField name="defName" variant="outlined" label="Defendant's Name" required value={currentCase.defName} className='uCaseInput' placeholder="Defendant's name" onChange={onChangeDefName} />
+                        <TextField name="defAddr" variant="outlined" label="Defendant's Address" required value={currentCase.defAddr} className="uCaseInput" placeholder="Defendant's address" onChange={onChangeDefAddr} />
+                        <TextField name="CrimeType" variant="outlined" label="Crime Type" required value={currentCase.crimeType} className="uCaseInput" placeholder="Crime Type" onChange={onChangeCrimeType} />
+                        <TextField name="CrimeLoc" variant="outlined" label="Crime Location" required value={currentCase.crimeLoc} className="uCaseInput" placeholder="Crime Location" onChange={onChangeCrimeLoc} />
+                        <TextField name="officerName" variant="outlined" label="Officer's Name" required value={currentCase.officerName} className="uCaseInput" placeholder="Officer's name" onChange={onChangeOfficerName} />
+                        <TextField name="judgeName" variant="outlined" label="Judge's Name" value={currentCase.judgeName} className="uCaseInput" placeholder="Judge's name" onChange={onChangeJudgeName} />
+                        <TextField name="lawyerName" variant="outlined" label="Lawyer's Name" value={currentCase.lawyerName} className="uCaseInput" placeholder="Lawyer's name" onChange={onChangeLawyerName} />
+                        <button className="uCaseButton" type='submit'>Update Case</button>
                     </div>
                 </form>
             </div>

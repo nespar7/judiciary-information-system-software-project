@@ -1,9 +1,12 @@
 import './case.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
 
 export default function Case({ currentCase, index, designation }) {
+
+    const {user} = useContext(AuthContext);
 
     return (
         <div className="case">
@@ -40,9 +43,9 @@ export default function Case({ currentCase, index, designation }) {
                     <h4 className="heading">Status:</h4>
                     <span className='caseText'>{currentCase.status}</span>
                 </div>
-                <Link to={`/updateCase/${currentCase._id}`} >
-                    <button>Update Case</button>
-                </Link>
+                {user.designation === 'registrar' ? <Link to={`/updateCase/${currentCase._id}`} >
+                    <button className='uButton'>Update Case</button>
+                </Link> : <></>}
             </div>
         </div>
     )
