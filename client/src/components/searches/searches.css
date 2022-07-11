@@ -8,11 +8,17 @@
     padding: 20px;
 }
 
-.searchText{
-    margin-left: 20px;
-    margin-top: 30px;
-}
-
 .searchWrapper > .case{
     margin-top: 0;
+}
+
+.searchbar {
+    margin-left: 20px;
+    margin-top: 18px;
+    width: 50%;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
 }

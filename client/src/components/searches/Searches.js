@@ -3,16 +3,18 @@ import axios from "axios";
 import Case from "../case/Case";
 import { AuthContext } from "../../context/AuthContext";
 import './searches.css'
+import { Search } from "@material-ui/icons";
 
 export default function Searches({ search }) {
     
     const [SearchResult, setSearchResult] = useState([]);
+    const [Query, setQuery] = useState("");
 
     const { user: currentUser } = useContext(AuthContext);
 
     useEffect(() => {
         const fetchCases = async () => {
-            const res = await axios.get(`/case?defName=${search}&defAddr=${search}&crimeType=${search}&crimeLoc=${search}&officerName=${search}&status=${search}&judgeName=${search}&lawyerName=${search}`)
+            const res = await axios.get(`/case?defName=${Query}&defAddr=${Query}&crimeType=${Query}&crimeLoc=${Query}&officerName=${Query}&status=${Query}&judgeName=${Query}&lawyerName=${Query}`)
 
             const newData = res.data.filter((value, index, self) => 
                 index === self.findIndex((t) => (
@@ -28,11 +30,15 @@ export default function Searches({ search }) {
         }
 
         fetchCases();
-    }, [search]);
+    }, [Query]);
+
+    const onChangeQuery = (e) => {
+        setQuery(e.target.value);
+    }
 
     var content;
 
-    if (SearchResult.length === 0) {
+    if (SearchResult.length === 0 || Query === "") {
         content = 
             <div className="searchText">
                 No Results Match the search
@@ -47,8 +53,9 @@ export default function Searches({ search }) {
 
     return (
         <div className="search">
-            <div className="searchText">
-                Search results here...
+            <div className="searchbar">
+                <Search className="searchIcon" />
+                <input type="text" className="searchInput" placeholder="Search for cases" value={Query} onChange={onChangeQuery} />
             </div>
             <div className="searchWrapper">
                 {content}

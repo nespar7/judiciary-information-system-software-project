@@ -28,15 +28,6 @@
     justify-content: space-around;
 }
 
-.searchbar{
-    width: 50%;
-    height: 30px;
-    background-color: #fff;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-}
-
 .searchIcon{
     font-size: 20px !important;
     margin-left: 10px;

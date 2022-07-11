@@ -17,10 +17,6 @@ function Topbar() {
                         </Link>
                     </div>
                     <div className="topbarRight">
-                        <div className="searchbar">
-                            <Search className="searchIcon" />
-                            <input type="text" className="searchInput" placeholder="Search for cases" />
-                        </div>
                         <div className='createOptions'>
                             <Link to="/createUser" style={{textDecoration:"none"}}>
                                 <span className="logo">create user</span>

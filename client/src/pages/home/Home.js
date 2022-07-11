@@ -9,7 +9,7 @@ export default function Home() {
             <Topbar />
             <div className="homeContainer">
                 <Info />
-                <Searches search="josu" />
+                <Searches />
             </div>
         </>
     )
