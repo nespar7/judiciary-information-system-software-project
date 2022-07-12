@@ -38,6 +38,7 @@ router.get('/:id', async (req, res) => {
 
 // get all cases by defName/officerName/judgeName/lawyerName
 router.get('/', async (req, res) => {
+
     const defName = req.query.defName;
     const defAddr = req.query.defAddr;
     const crimeType = req.query.crimeType;
@@ -46,16 +47,26 @@ router.get('/', async (req, res) => {
     const status = req.query.status;
     const judgeName = req.query.judgeName;
     const lawyerName = req.query.lawyerName;
+    console.log(defName);
+
+    const defNameRegex = new RegExp(defName, 'i');
+    const defAddrRegex = new RegExp(defAddr, 'i');
+    const crimeTypeRegex = new RegExp(crimeType, 'i');
+    const crimeLocRegex = new RegExp(crimeLoc, 'i');
+    const officerNameRegex = new RegExp(officerName, 'i');
+    const statusRegex = new RegExp(status, 'i');
+    const judgeNameRegex = new RegExp(judgeName, 'i');
+    const lawyerNameRegex = new RegExp(lawyerName, 'i');
 
     try {
-        const casesByDefName = await Case.find({ defName: defName });
-        const casesByDefAddr = await Case.find({ defAddr: defAddr });
-        const casesByType = await Case.find({ crimeType: crimeType });
-        const casesByLoc = await Case.find({ crimeLoc: crimeLoc });
-        const casesByOfficerName = await Case.find({ officerName: officerName });
-        const casesByStatus = await Case.find({ status: status });
-        const casesByJudgeName = await Case.find({ judgeName: judgeName });
-        const casesByLawyerName = await Case.find({ lawyerName: lawyerName });
+        const casesByDefName = !defName ? [] : await Case.find({ defName: {$regex: defNameRegex} });
+        const casesByDefAddr = !defAddr ? [] : await Case.find({ defAddr: {$regex: defAddrRegex} });
+        const casesByType = !crimeType ? [] : await Case.find({ crimeType: {$regex: crimeTypeRegex} });
+        const casesByLoc = !crimeLoc ? [] : await Case.find({ crimeLoc: {$regex: crimeLocRegex} });
+        const casesByOfficerName = !officerName ? [] : await Case.find({ officerName: {$regex: officerNameRegex} });
+        const casesByStatus = !status ? [] : await Case.find({ status: {$regex: statusRegex} });
+        const casesByJudgeName = !judgeName ? [] : await Case.find({ judgeName: {$regex: judgeNameRegex} });
+        const casesByLawyerName = !lawyerName ? [] : await Case.find({ lawyerName: {$regex: lawyerNameRegex} });
         
         const result = casesByDefName.concat(casesByDefAddr, casesByType, casesByLoc, casesByOfficerName, casesByStatus, casesByJudgeName, casesByLawyerName);
 
