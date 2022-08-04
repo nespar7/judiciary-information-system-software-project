@@ -10,8 +10,6 @@ const caseRoute = require('./routes/case');
 
 dotenv.config();
 
-const port = process.env.PORT || 3004;
-
 mongoose.connect(process.env.MONGO_URL, () => {
     console.log("Connected to mongoDB");
 });
@@ -33,6 +31,6 @@ app.get("/case", (req, res) => {
     res.json("welcome to cases page")
 })
 
-app.listen(port, () => {
+app.listen(3004, () => {
     console.log('backend server is running');
 })
