@@ -29,7 +29,9 @@
   designation: registrar
 * Open the website on your local with this registrar and you can now create users with different designations and add cases.
 
-## [Backend](./api):
+## Project Structure:
+
+### [Backend](./api):
 
 The `api` folder is for the backend part. 
 We used `node.js` with `express` framework for processing requests.
@@ -62,7 +64,7 @@ In our case, we have [cases](./api/models/Case.js) and [users](./api/models/User
   This file contains all environment information. In our case, we put the mongodb url.
 
 
-## [Frontend](./client)
+### [Frontend](./client)
 
 The `client` folder is for frontend. 
 We used `react.js` for frontend.
