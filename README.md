@@ -1,4 +1,15 @@
 ﻿# Judiciary Information System Software
+
+## Links:
+
+* [Authors](#authors)
+* [How to run](#how-to-run)
+* [How to configure your own database](#how-to-configure-your-own-database)
+* [How to create your own models](#how-to-create-your-own-models)
+* [Project structure](#project-structure)
+* [Further improvements](#further-improvements)
+* [Lama Dev's tutorial for MERN stack development](https://youtu.be/pFHyZvVxce0)
+ 
 ## Authors: [Surya Prakash](https://github.com/nespar7/), [Virinchi Mourya](https://github.com/Kreiger444) and [Pandiri Adithya](https://github.com/fartbox123)
 
 ## How to run:
