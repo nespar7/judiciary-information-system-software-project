@@ -74,8 +74,10 @@ The `public` folder is for Assets and index.html.
 The `src` folder has the source files.
 
 * [Api calls](./client/src/apiCalls.js)
+  
   Currently, only the login call is implemented
 * [Context API](./client/src/context)
+
   We used `context api` to store user and app context in the website so that refreshing or reopening does not prompt the user to login again and again.
 * [Components](./client/src/components)
 
