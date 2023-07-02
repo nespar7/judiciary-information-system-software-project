@@ -24,9 +24,9 @@
 * Click on the create collection button next to database name.
 * Create the cases collection
 * Create the users collection and add some data like this
-  username: registrar_1
-  password: $2a$07$tA6M.LX09GxDmqzUhavVeezO1PxwI9DFD2ovUeZS5uLeJiozi0aCK (In the website it is 123456, but due to encryptions while adding and validating users we add this hashed string as password while creation of the first user).
-  designation: registrar
+  * username: registrar_1
+  * password: $2a$07$tA6M.LX09GxDmqzUhavVeezO1PxwI9DFD2ovUeZS5uLeJiozi0aCK (In the website it is 123456, but due to encryptions while adding and validating users we add this hashed string as password while creation of the first user).
+  * designation: registrar
 * Open the website on your local with this registrar and you can now create users with different designations and add cases.
 
 ## Project Structure:
