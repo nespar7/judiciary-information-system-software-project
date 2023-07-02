@@ -1,5 +1,5 @@
 ﻿# Judiciary Information System Software
-## Authors: [Surya Prakash](https://github.com/nespar7/), [Virinchi Mourya](https://github.com/Kreiger444)
+## Authors: [Surya Prakash](https://github.com/nespar7/), [Virinchi Mourya](https://github.com/Kreiger444) and [Pandiri Adithya](https://github.com/fartbox123)
 
 ## [Backend](./api):
 
