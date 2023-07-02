@@ -1,6 +1,34 @@
 ﻿# Judiciary Information System Software
 ## Authors: [Surya Prakash](https://github.com/nespar7/), [Virinchi Mourya](https://github.com/Kreiger444) and [Pandiri Adithya](https://github.com/fartbox123)
 
+## How to run:
+* Clone the project to somewhere on you local. Let's call it `local-folder`
+* Open the terminal in `local-folder/api` and run the command: `nodemon`
+* Open another terminal in `local-folder/client` and run the following commands: `npm install`, `npm run start`. This should open the login page.
+* Login using the administrator credits you set up in the [database configuration step](#how-to-configure-your-own-database).
+* Create users and test all functionalities.
+
+## How to configure your own database:
+* Create an account in MongoDB Atlas and create a project.
+* Create a database using the free plan.
+* After creating, you would be asked to create your first user. Set up username and password.
+* Click on the connect button shown next to your cluster name and then choose the `Drivers` option.
+* You will see an instruction saying `connection string` and a string in this format `mongodb+srv://<username>:<password>@cluster0.eurdb3t.mongodb.net/?retryWrites=true&w=majority`. Add your username and password and copy the string.
+* Paste it in place of the similar string in the environment folder(`local-folder/api/.env`)
+* Create case and user models.
+
+## How to create your own models:
+* In MongoDb atlas webstie, open your cluster.
+* Open the collections tab.
+* Create a database with name `test`.
+* Click on the create collection button next to database name.
+* Create the cases collection
+* Create the users collection and add some data like this
+  username: registrar_1
+  password: $2a$07$tA6M.LX09GxDmqzUhavVeezO1PxwI9DFD2ovUeZS5uLeJiozi0aCK (In the website it is 123456, but due to encryptions while adding and validating users we add this hashed string as password while creation of the first user).
+  designation: registrar
+* Open the website on your local with this registrar and you can now create users with different designations and add cases.
+
 ## [Backend](./api):
 
 The `api` folder is for the backend part. 
@@ -62,3 +90,5 @@ The `src` folder has the source files.
 
 * Add a custom table component to show user and case information more efficiently.
 * Implement the payment functionality so that a non-admin user can only access cases they have paid for.
+* Add error messages when creation and login fails.
+* Change fields like lawyer's name, etc. to selectors since they can not be something not in the database.
