@@ -1,7 +1,7 @@
-﻿# judiciary-information-system-software-project
+﻿# Judiciary Information System Software
 ## Authors: [Surya Prakash](https://github.com/nespar7/), [Virinchi Mourya](https://github.com/Kreiger444)
 
-# [Backend](./api):
+## [Backend](./api):
 
 The `api` folder is for the backend part. 
 We used `node.js` with `express` framework for processing requests.
@@ -34,7 +34,7 @@ In our case, we have [cases](./api/models/Case.js) and [users](./api/models/User
   This file contains all environment information. In our case, we put the mongodb url.
 
 
-# [Frontend](./client)
+## [Frontend](./client)
 
 The `client` folder is for frontend. 
 We used `react.js` for frontend.
@@ -58,7 +58,7 @@ The `src` folder has the source files.
   Pages like home, login, etc. for different functionalities.
 
 
-# Further improvements
+## Further improvements
 
 * Add a custom table component to show user and case information more efficiently.
 * Implement the payment functionality so that a non-admin user can only access cases they have paid for.
