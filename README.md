@@ -8,7 +8,7 @@
 4. [How to create your own models](#how-to-create-your-own-models)
 5. [Project structure](#project-structure)
 6. [Further improvements](#further-improvements)
-7. [Lama Dev's tutorial for MERN stack development](https://youtu.be/pFHyZvVxce0){target:"_blank" rel="noopener"}
+7. [Lama Dev's tutorial for MERN stack development](https://youtu.be/pFHyZvVxce0){:target:"_blank" rel="noopener"}
  
 ## Authors: [Surya Prakash](https://github.com/nespar7/), [Virinchi Mourya](https://github.com/Kreiger444) and [Pandiri Adithya](https://github.com/fartbox123)
 
