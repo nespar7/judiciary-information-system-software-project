@@ -12,6 +12,9 @@
  
 ## Authors: [Surya Prakash](https://github.com/nespar7/), [Virinchi Mourya](https://github.com/Kreiger444) and [Pandiri Adithya](https://github.com/fartbox123)
 
+## Note:
+I deleted my data cluster and my credentials won't work anymore. Please create a cluster following instructions from the [database configuration step](#how-to-configure-your-own-database)
+
 ## How to run:
 * Clone the project to somewhere on you local. Let's call it `local-folder`
 * Open the terminal in `local-folder/api` and run the command: `nodemon`
