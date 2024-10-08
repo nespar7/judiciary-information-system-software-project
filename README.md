@@ -28,6 +28,7 @@ I deleted my data cluster and my credentials won't work anymore. Please create a
 * After creating, you would be asked to create your first user. Set up username and password.
 * Click on the connect button shown next to your cluster name and then choose the `Drivers` option.
 * You will see an instruction saying `connection string` and a string in this format `mongodb+srv://<username>:<password>@cluster0.eurdb3t.mongodb.net/?retryWrites=true&w=majority`. Add your username and password and copy the string.
+* Make sure to add your ip address in the accepted address list. set it to accept 0.0.0.0/0 to accept from all addeesses.
 * Paste it in place of the similar string in the environment folder(`local-folder/api/.env`)
 * Create case and user models.
 
